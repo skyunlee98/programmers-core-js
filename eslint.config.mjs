@@ -7,6 +7,8 @@ const types = {
   isObject:true,
   isArray:true,
   isNull:true,
+  isString:true,
+  isUndefined:true,
 }
 
 
@@ -22,7 +24,8 @@ export default defineConfig([
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...types
+        ...types,
+        getNode:true
       },
     },
     rules:{
