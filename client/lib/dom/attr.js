@@ -1,5 +1,5 @@
-import { getNode } from "./getNode";
-import { isString, isUndefined, isNull } from "../utils/type";
+import { getNode } from "./getNode.js";
+import { isString, isUndefined, isNull } from "../utils/type.js";
 
 export function getAttr(node,prop){
   if(isString(node)) node = getNode(node);

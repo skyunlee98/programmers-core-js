@@ -1,5 +1,5 @@
-import { getNode } from "./getNode";
-import { isString, isObject } from "../utils/type";
+import { getNode } from "./getNode.js";
+import { isString, isObject } from "../utils/type.js";
 
 /**
  * @function DOM Element에 클래스를 추가하는 함수
