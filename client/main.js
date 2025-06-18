@@ -1,4 +1,12 @@
-import { diceAnimation, getNode, attr, insertLast } from "./lib/index.js";
+import {
+  memo,
+  attr,
+  getNode,
+  endScroll,
+  insertLast,
+  clearContents,
+  diceAnimation,
+} from "./lib/index.js";
 
 const [rollingButton, recordButton, resetButton] = document.querySelectorAll('.buttonGroup button')
 const recordListWrapper = getNode('.recordListWrapper');
@@ -72,12 +80,9 @@ function createItem(value){
 }
 
 function renderRecordItem(){
-  
-  const diceNumber = +attr('#cube','dice');
-  
+  const diceNumber = +attr(memo('cube'),'dice');
   
   insertLast('tbody', createItem(diceNumber));
-  recordListWrapper.scrollTop = recordListWrapper.scrollHeight
 }
 
 const  handleRollingDice = (() => {
@@ -103,10 +108,14 @@ const  handleRollingDice = (() => {
 function handleRecord(){
   recordListWrapper.hidden = false;
   renderRecordItem();
+  endScroll(recordListWrapper)
 }
 
 function handleReset(){
   recordListWrapper.hidden = true;
+  clearContents('tbody');
+  count = 0;
+  total = 0;
 }
 
 
